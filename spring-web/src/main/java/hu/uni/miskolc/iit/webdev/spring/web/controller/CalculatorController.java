@@ -1,9 +1,8 @@
 package hu.uni.miskolc.iit.webdev.spring.web.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by tothzs on 2017.10.16..
@@ -32,7 +31,24 @@ public class CalculatorController {
 
     @RequestMapping(value = {"/div"})
     @ResponseBody
-    public double div(@RequestParam( value = "a") double a, @RequestParam("b") double b){
+    public double div(@RequestParam( value = "a") double a, @RequestParam("b") double b) throws ArithmeticException{
+        if(b==0.0){
+            throw new ArithmeticException();
+        }
         return a/b;
+    }
+
+    @ExceptionHandler(value={NumberFormatException.class})
+    @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
+    @ResponseBody
+    public String handleNumberFormatException(){
+        return "Calculator can process only numerical input!";
+    }
+
+    @ExceptionHandler(value = {ArithmeticException.class})
+    @ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
+    @ResponseBody
+    public String divideByZero(){
+        return "Cannot divide by zero!";
     }
 }
