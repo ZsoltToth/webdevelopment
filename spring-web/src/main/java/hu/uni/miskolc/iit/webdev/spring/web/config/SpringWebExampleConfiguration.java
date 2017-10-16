@@ -1,5 +1,6 @@
 package hu.uni.miskolc.iit.webdev.spring.web.config;
 
+import hu.uni.miskolc.iit.webdev.spring.web.controller.CalculatorController;
 import hu.uni.miskolc.iit.webdev.spring.web.controller.GreetingsController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,5 +15,10 @@ public class SpringWebExampleConfiguration {
     @Bean
     public GreetingsController greetingsController(){
         return  new GreetingsController();
+    }
+
+    @Bean
+    public CalculatorController calculatorController(){
+        return new CalculatorController();
     }
 }
