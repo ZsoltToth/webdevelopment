@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+<script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#listCars').click(function () {
+                $.get('cars/',function (data) {
+                    //For better solutions, take part in Web Technologies course.
+                    var table = '<table>';
+
+                    for(var i = 0; i< data.length; i++){
+                        table += "<tr>";
+                        table += "<td>"+ data[i]['plateNo'] +"</td>";
+                        table += "<td>"+ data[i]['brand'] +"</td>";
+                        table += "<td>"+ data[i]['carModel'] +"</td>";
+                        //table += "<td>"+ data['color'] +"</td>";
+                        table += "</tr>";
+                    }
+                    table += "</table>";
+                    $('#Content').html(table);
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="MenuBar"><button id="listCars">Cars</button></div>
+<div id="Content">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a ornare metus. Curabitur dictum tortor sit amet
+        tellus dictum, a tempor diam pharetra. In gravida dolor sed massa efficitur consectetur. Vestibulum euismod
+        imperdiet eros sit amet lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt dui
+        lectus, sit amet gravida justo condimentum vitae. Vivamus maximus mi nec felis faucibus viverra. Maecenas diam
+        purus, placerat vitae mauris quis, dapibus vulputate lacus. Quisque at eros congue, iaculis ex eu, rhoncus
+        lacus. Aenean lacinia, sapien sit amet condimentum ultricies, tellus nulla tempor leo, convallis volutpat eros
+        erat in est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam
+        eleifend elit a libero euismod, vitae sodales velit molestie. Donec at diam vulputate purus posuere laoreet.
+        Proin congue justo id quam volutpat rhoncus.
+    </p>
+    <p>
+        Sed vestibulum gravida ullamcorper. Maecenas aliquet tincidunt dolor, ac semper tortor sodales at. Suspendisse
+        vulputate tempor magna, ut consectetur nisl viverra sed. Aliquam laoreet sapien non auctor semper. Integer
+        elementum fringilla porttitor. Curabitur quis aliquet diam. Duis gravida purus a risus luctus commodo. Maecenas
+        felis mauris, porttitor sed arcu vitae, pretium consectetur risus. Duis vestibulum tincidunt ipsum quis
+        consequat. Fusce ex ante, facilisis et accumsan ullamcorper, eleifend id magna. In a lectus at ante egestas
+        posuere. Nam egestas massa vitae quam vulputate pulvinar sed id ante. Donec fermentum vitae augue et faucibus.
+    </p>
+    <p>
+        Nulla facilisi. Quisque ullamcorper faucibus maximus. Donec vitae bibendum odio, vel dictum ante. Aenean
+        efficitur erat sit amet convallis laoreet. Morbi vitae lorem in elit molestie sollicitudin. Sed pharetra, turpis
+        in finibus ultrices, arcu tortor aliquet nibh, in pellentesque metus orci ac elit. Sed ac neque a diam luctus
+        cursus. Ut fringilla vulputate dolor non porta. Ut interdum diam non mollis mollis. Duis quis vehicula metus.
+        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque aliquet
+        egestas nunc, at dictum enim pellentesque et. Integer nec neque vel augue venenatis consectetur a ut quam.
+    </p>
+    <p>
+        Aliquam cursus, ipsum finibus tincidunt ornare, ipsum ipsum cursus metus, consequat ultricies metus dolor
+        viverra eros. Maecenas at imperdiet ligula, sed accumsan lorem. Aliquam facilisis odio in egestas pretium.
+        Quisque nunc lorem, ornare in tincidunt at, fringilla id nunc. Curabitur arcu lacus, semper at tellus nec,
+        interdum condimentum tellus. Suspendisse potenti. Phasellus non aliquam metus. Nulla tempor bibendum nisl, ac
+        blandit nulla luctus a. Suspendisse porttitor ex odio, ut pulvinar arcu cursus at. Aenean in egestas orci.
+    </p>
+    <p>
+        Cras maximus est sit amet enim semper laoreet. Maecenas nibh arcu, pharetra vitae iaculis eu, ultricies sit amet
+        sapien. Etiam fringilla, purus vitae laoreet rutrum, dui dui scelerisque risus, eu tempor neque ex a nisl.
+        Vestibulum et posuere augue, vel sollicitudin lorem. Curabitur vel mauris at metus ornare aliquet et ac ante.
+        Morbi vitae metus a sapien pretium imperdiet. Cras convallis dapibus est, id malesuada mi consequat ac. Nulla
+        tempus nunc at orci porta, a consectetur nulla facilisis. Integer condimentum tortor non porta fermentum.
+        Vivamus cursus eros non varius pharetra. Donec sed est quis ante iaculis rutrum. Morbi laoreet hendrerit enim
+        sit amet elementum. Aliquam ligula lorem, aliquet sit amet ante vel, tristique tempus justo. Vivamus sed lectus
+        sem. In consequat nisi non velit placerat, non consequat augue mollis. Curabitur in scelerisque orci.
+    </p>
+</div>
+</body>
+</html>
