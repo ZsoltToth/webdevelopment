@@ -12,11 +12,23 @@
     <url>http://maven.apache.org</url>
     <dependencies>
 
+        <!-- Required for Web Apps -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- Project Related Dependenceis  -->
+        <dependency>
+            <groupId>hu.uni.miskolc.iit.webdevelopment.examples.cars</groupId>
+            <artifactId>controller</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>hu.uni.miskolc.iit.webdevelopment.examples.cars</groupId>
+            <artifactId>dao-memory</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
