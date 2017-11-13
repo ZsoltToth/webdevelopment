@@ -10,11 +10,16 @@
     <modules>
         <module>core</module>
         <module>service</module>
+        <module>daomemory</module>
+        <module>controller</module>
+
     </modules>
     <packaging>pom</packaging>
 
     <properties>
         <junit.version>4.12</junit.version>
+        <spring.version>4.3.9.RELEASE</spring.version>
+        <jackson.version>2.9.0.pr4</jackson.version>
     </properties>
 
 </project>
