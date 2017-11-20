@@ -4,6 +4,7 @@ import hu.uni.miskolc.iit.webdevelopment.examples.cars.dao.exceptions.CarRecordA
 import hu.uni.miskolc.iit.webdevelopment.examples.cars.model.Car;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -21,11 +22,11 @@ public class CarMemoryDAO implements CarDAO
         /*
         Set up a predefiend Database
          */
-        database = Arrays.asList(
+        database = new ArrayList<Car>(Arrays.asList(
                 new Car("abc123","Audi","A4",Color.pink),
                 new Car("def456","Suzuki","Swift",Color.green),
                 new Car("ghi789","Opel","Corsa",Color.white)
-        );
+        ));
     }
 
     public Collection<Car> readCars() {
@@ -45,6 +46,9 @@ public class CarMemoryDAO implements CarDAO
 
     public void createCar(Car car) throws CarRecordAlreadyExistsException {
         for(Car record : database){
+            if(record == null){
+                continue;
+            }
             if(record.equals(car)){
                 throw new CarRecordAlreadyExistsException(car.getPlateNo());
             }

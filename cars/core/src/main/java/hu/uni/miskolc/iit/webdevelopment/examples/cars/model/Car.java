@@ -13,8 +13,8 @@ public class Car
     private String carModel;
     private Color color;
 
-    public Car(String palteNo, String brand, String carModel, Color color) {
-        this.plateNo = palteNo;
+    public Car(String plateNo, String brand, String carModel, Color color) {
+        this.plateNo = plateNo;
         this.brand = brand;
         this.carModel = carModel;
         this.color = color;
@@ -38,9 +38,22 @@ public class Car
 
     @Override
     public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
         if(!(obj instanceof  Car)){
             return false;
         }
         return plateNo.equals(((Car)obj).plateNo);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "plateNo='" + plateNo + '\'' +
+                ", brand='" + brand + '\'' +
+                ", carModel='" + carModel + '\'' +
+                ", color=" + color +
+                '}';
     }
 }

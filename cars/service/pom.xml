@@ -12,7 +12,7 @@
     <artifactId>service</artifactId>
     <packaging>jar</packaging>
 
-    <name>core</name>
+    <name>service</name>
     <url>http://maven.apache.org</url>
 
     <properties>

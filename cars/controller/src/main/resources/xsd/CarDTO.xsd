@@ -1,0 +1,23 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://services.memorynotfound.com/"
+           elementFormDefault="qualified">
+
+
+    <xs:complexType name="CarRegistrationRequest">
+        <xs:sequence>
+            <xs:element name="plateNo" type="xs:string"/>
+            <xs:element name="brand" type="xs:string"/>
+            <xs:element name="model" type="xs:string"/>
+            <xs:element name="color">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="red" type="xs:int"/>
+                        <xs:element name="green" type="xs:int"/>
+                        <xs:element name="blue" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
