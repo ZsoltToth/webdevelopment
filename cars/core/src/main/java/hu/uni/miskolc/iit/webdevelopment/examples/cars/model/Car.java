@@ -79,7 +79,7 @@ public class Car
         return prototype.getGrossVehicleWeight();
     }
 
-    public int getDoorNumber() {
+    public DoorNumber getDoorNumber() {
         return prototype.getDoorNumber();
     }
 

@@ -44,8 +44,9 @@ public class CarPrototype {
     /**
      * number of doors.
      * It may depends on the body type.
+     * Only 2,3,4 and 5 door cars a supported.
      */
-    private int doorNumber;
+    private DoorNumber doorNumber;
     /**
      * Performance of the engine in kW.
      */
@@ -53,7 +54,8 @@ public class CarPrototype {
 
 
 
-    public CarPrototype(CarProducer producer, String model, CarBodyStyle bodyStyle, int yearOfIntroduction, String note, int crubWeight, int grossVehicleWeight, int doorNumber, double enginePerformance) {
+    public CarPrototype(CarProducer producer, String model, CarBodyStyle bodyStyle, int yearOfIntroduction, String note, int crubWeight, int grossVehicleWeight, DoorNumber doorNumber, double enginePerformance) {
+
         this.producer = producer;
         this.model = model;
         this.bodyStyle = bodyStyle;
@@ -93,7 +95,7 @@ public class CarPrototype {
         return grossVehicleWeight;
     }
 
-    public int getDoorNumber() {
+    public DoorNumber getDoorNumber() {
         return doorNumber;
     }
 

@@ -41,7 +41,7 @@ public interface CarPrototypeManagerService {
     Collection<CarPrototype> listCarPrototypes(CarBodyStyle bodyStyle);
 
     /**
-     * Recrod a new Car Prototype into the system.
+     * Record a new Car Prototype into the system.
      * If there is a car prototype in the system whose id matches with the current prototype, then exception will be thrown.
      * @param prototype prototype which will be recorded
      * @throws ExistingCarPrototypeException if the prototype exists in the system.
