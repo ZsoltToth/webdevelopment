@@ -14,7 +14,7 @@ public class CarPrototypeTest {
 
     @Before
     public void setUp(){
-        this.prototype = new CarPrototype(CarProducer.SUZUKI,"Swift 1",CarBodyStyle.COUPE, 1992, "", 800,1200,4,40);
+        this.prototype = new CarPrototype(CarProducer.SUZUKI,"Swift 1",CarBodyStyle.COUPE, 1992, "", 800,1200,DoorNumber.FOUR,40);
     }
 
     @Test
