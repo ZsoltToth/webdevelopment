@@ -1,7 +1,5 @@
 package hu.uni.miskolc.iit.webdevelopment.examples.cars.model;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * Created by tothzs on 2017.11.24..

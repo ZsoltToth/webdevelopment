@@ -98,5 +98,13 @@ public class Car
         return plateNo.equals(((Car)obj).plateNo);
     }
 
-
+    @Override
+    public String toString() {
+        return "Car{" +
+                "plateNo='" + plateNo + '\'' +
+                ", prototype=" + prototype +
+                ", color=" + color +
+                ", productionDate=" + productionDate +
+                '}';
+    }
 }
