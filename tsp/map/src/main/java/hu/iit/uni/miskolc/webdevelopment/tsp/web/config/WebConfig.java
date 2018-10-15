@@ -1,6 +1,5 @@
 package hu.iit.uni.miskolc.webdevelopment.tsp.web.config;
 
-import hu.iit.uni.miskolc.webdevelopment.tsp.controller.MapController;
 import hu.iit.uni.miskolc.webdevelopment.tsp.dao.CityDAO;
 import hu.iit.uni.miskolc.webdevelopment.tsp.dao.PathDAO;
 import hu.iit.uni.miskolc.webdevelopment.tsp.dao.file.FileCityDAO;
@@ -21,18 +20,18 @@ import java.io.File;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "hu.iit.uni.miskolc.webdevelopment.tsp.controller")
-@PropertySource("classpath:hu/iit/uni/miskolc/webdevelopment/tsp/web/config/web.properties")
+@PropertySource(value={"classpath:config/web.properties"})
 public class WebConfig {
-
-    @Autowired
-    Environment environment;
 
     @Value ("${database.city}")
     private String cityDBPath;
 
     @Bean
     public CityDAO cityDAO(){
-        return new FileCityDAO(new File(cityDBPath));
+
+
+        System.out.println(cityDBPath);
+        return new FileCityDAO(new File("alma"));
     }
 
     @Bean
