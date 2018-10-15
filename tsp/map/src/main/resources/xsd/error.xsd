@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://iit.uni-miskolc.hu/distributed/tsp"
+           xmlns:tns="http://iit.uni-miskolc.hu/distributed/tsp">
+    <xs:simpleType name="errorCause">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="City already exists!"/>
+            <xs:enumeration value="City not found!"/>
+            <xs:enumeration value="Path not found!"/>
+            <xs:enumeration value="Database is unavailable!"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="errorMessage">
+        <xs:sequence>
+            <xs:element name="code" type="xs:integer"/>
+            <xs:element name="cause" type="tns:errorCause"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

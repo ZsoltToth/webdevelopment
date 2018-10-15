@@ -43,7 +43,7 @@ public class FileCityDAO implements CityDAO {
                 result.add(new City(line));
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("hoppaa!");
         } catch (IOException e) {
             e.printStackTrace();
         }
