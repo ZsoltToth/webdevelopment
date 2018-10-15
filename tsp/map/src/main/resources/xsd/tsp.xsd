@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://iit.uni-miskolc.hu/distributed/tsp"
+xmlns:tns="http://iit.uni-miskolc.hu/distributed/tsp">
+    <xs:complexType name="city">
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+    
+    <xs:complexType name="path">
+        <xs:sequence>
+            <xs:element name="from" type="tns:city"/>
+            <xs:element name="to" type="tns:city"/>
+            <xs:element name="weight" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="map">
+        <xs:sequence>
+            <xs:element name="cities">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="city" type="tns:city" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="paths">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="path" type="tns:path" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

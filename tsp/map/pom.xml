@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>hu.iit.uni.miskolc.webdevelopment.tsp</groupId>
+  <artifactId>map</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>map Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>4.3.1.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>map</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.20.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <!--
+        Java 8+ does not work with 2.3.1 //2.4 also has some issues
+        >mvn -version
+          Apache Maven 3.5.2
+          Maven home: /usr/share/maven
+          Java version: 10.0.2, vendor: Oracle Corporation
+          Java home: /usr/lib/jvm/java-11-openjdk-amd64
+          Default locale: en_US, platform encoding: UTF-8
+          OS name: "linux", version: "4.15.0-36-generic", arch: "amd64", family: "unix"
+        >whereis javac
+          javac: /usr/bin/javac /usr/share/man/man1/javac.1.gz
+        >file /usr/bin/javac
+          /usr/bin/javac: symbolic link to /etc/alternatives/javac
+        >file /etc/alternatives/javac
+          /etc/alternatives/javac: symbolic link to /usr/lib/jvm/java-8-openjdk-amd64/bin/javac
+        >export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+        > mvn -version
+         Apache Maven 3.5.2
+                Maven home: /usr/share/maven
+                Java version: 1.8.0_181, vendor: Oracle Corporation <=== Java 8.
+                Java home: /usr/lib/jvm/java-8-openjdk-amd64/jre
+                Default locale: en_US, platform encoding: UTF-8
+                OS name: "linux", version: "4.15.0-36-generic", arch: "amd64", family: "unix"
+        >mvn complie ==> SUCCESS
+        -->
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jaxb2-maven-plugin</artifactId>
+        <version>2.3.1</version>
+        <executions>
+          <execution>
+            <id>xjc</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <packageName>${project.groupId}.${project.artifactId}.dto</packageName>
+          <!--
+          <xjbSources>
+              <xjbSource>src/main/resources/xjb</xjbSource>
+          </xjbSources>
+          -->
+          <sources>
+            <source>${project.basedir}/src/main/resources/xsd</source>
+          </sources>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
