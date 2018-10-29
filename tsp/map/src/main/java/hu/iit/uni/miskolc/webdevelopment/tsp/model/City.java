@@ -11,4 +11,12 @@ public class City {
     public String getName() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof City == false){
+            return false;
+        }
+        return this.name.equals(((City)obj).name);
+    }
 }

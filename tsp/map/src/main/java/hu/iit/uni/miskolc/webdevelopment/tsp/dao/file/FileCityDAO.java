@@ -13,8 +13,11 @@ public class FileCityDAO implements CityDAO {
 
     private File database;
 
-    public FileCityDAO(File database) {
+    public FileCityDAO(File database) throws IOException {
         this.database = database;
+        if(!database.exists()){
+            database.createNewFile();
+        }
     }
 
     @Override

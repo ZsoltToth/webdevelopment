@@ -4,11 +4,10 @@ import hu.iit.uni.miskolc.webdevelopment.tsp.map.dto.City;
 import hu.iit.uni.miskolc.webdevelopment.tsp.map.dto.ErrorCause;
 import hu.iit.uni.miskolc.webdevelopment.tsp.map.dto.ErrorMessage;
 import hu.iit.uni.miskolc.webdevelopment.tsp.service.MapManager;
+import hu.iit.uni.miskolc.webdevelopment.tsp.service.exception.CityAlreadyExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
 import java.math.BigInteger;
@@ -41,6 +40,21 @@ public class MapController {
             c.setName(city.getName());
             result.add(c);
         }
+        return result;
+    }
+
+    @RequestMapping( value = {"/cities/record"}, method = RequestMethod.POST)
+    @ResponseBody
+    public void recordCity(@RequestBody City city) throws CityAlreadyExistException {
+        this.mapManagerService.recordCity(new hu.iit.uni.miskolc.webdevelopment.tsp.model.City(city.getName()));
+    }
+
+    @ExceptionHandler(CityAlreadyExistException.class)
+    @ResponseBody
+    public ErrorMessage cityAlreadyExistExceptionHandler(Exception ex){
+        ErrorMessage result = new ErrorMessage();
+        result.setCode(BigInteger.valueOf(150));
+        result.setCause(ErrorCause.CITY_ALREADY_EXISTS);
         return result;
     }
 

@@ -16,6 +16,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.io.File;
+import java.io.IOException;
 
 @Configuration
 @EnableWebMvc
@@ -27,11 +28,11 @@ public class WebConfig {
     private String cityDBPath;
 
     @Bean
-    public CityDAO cityDAO(){
+    public CityDAO cityDAO() throws IOException {
 
 
         System.out.println(cityDBPath);
-        return new FileCityDAO(new File("alma"));
+        return new FileCityDAO(new File(cityDBPath));
     }
 
     @Bean
@@ -40,7 +41,7 @@ public class WebConfig {
     }
 
     @Bean
-    public MapManager mapManagerService(){
+    public MapManager mapManagerService() throws IOException {
         MapManager result = new MapManagerImpl(cityDAO(),pathDAO());
         return result;
     }
